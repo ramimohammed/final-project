@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :properties
   resources :types
  devise_for :users, controllers: {sessions: 'users/sessions' } 
+ 
+ get 'contact', to: 'messages#new', as: 'contact'
+ post 'contact', to: 'messages#create'
+
 
 
 
