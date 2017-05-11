@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <!--<a class="navbar-brand" href="#">Start Bootstrap</a>-->
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -53,6 +53,9 @@
                     
                     <li>
                         <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <%= link_to 'Types',  types_path %>
                     </li>
                 </ul>
             </div>
@@ -72,7 +75,7 @@
                     
                 <p id="notice"><%= notice %></p>
 
-<h1>Listing Properties</h1>
+<h1>Listing Availibe Properties</h1>
 <table class="table table-striped">
 
   <thead>
@@ -88,13 +91,11 @@
       <th>Zip code</th>
       <th>Type</th>
       <th>Posted Time</th>
+      <th>Posted by</th>
      
       <th colspan="3"></th>
     </tr>
   </thead>
-
-
-
   <tbody>
     <% @properties.each do |property| %>
       <tr>
@@ -110,11 +111,16 @@
         <td><%= property.type_id %></td>
         <td><%= time_ago_in_words (property.created_at) %></td>
         
+        <td><%= property.user_id %></td>
+        
+        <!--User.find_by(id: (cureent_user.id) ).first_name-->
+        
+        
            <% if user_signed_in?%>
         <td><%= link_to 'Show', property %></td>
       
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+        
+        
         <% end %>
         
       </tr>
