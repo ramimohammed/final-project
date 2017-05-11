@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :properties
   resources :types
  devise_for :users, controllers: {sessions: 'users/sessions' } 
 
-root 'types#index'
+root 'properties#index'
 
 
 
