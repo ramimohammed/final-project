@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Properties</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Beds</th>
+      <th>Baths</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Zip code</th>
+      <th>Type</th>
+      <th>Posted Time</th>
+     
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.title %></td>
+        <td><%= property.description %></td>
+        <td><%= property.price %></td>
+        <td><%= property.beds %></td>
+        <td><%= property.baths %></td>
+        <td><%= property.address %></td>
+        <td><%= property.city %></td>
+        <td><%= property.zip_code %></td>
+        
+        <td><%= property.type_id %></td>
+        <td><%= time_ago_in_words (property.created_at) %></td>
+        
+           <% if user_signed_in?%>
+        <td><%= link_to 'Show', property %></td>
+      
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path %>
