@@ -52,5 +52,14 @@
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@property.latitude}%2C#{@property.longitude}" %>
 
+
+<% if user_signed_in?%>
+
+<%if @property.user_id == current_user.id%> 
+
 <%= link_to 'Edit', edit_property_path(@property) %> |
+<td><%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+<%end%>
+<%end%>
+<br>
 <%= link_to 'Back', properties_path %>
