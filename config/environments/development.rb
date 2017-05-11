@@ -1,4 +1,19 @@
 Rails.application.configure do
+  
+  #devise gem url after sign in 
+  config.action_mailer.default_url_options = { host:'https://new-final-project-ramimohammed.c9users.io/users/sign_in' }
+                                              { host: 'your application URL' }
+  config.action_mailer.smtp_settings = {
+       :address              => "smtp.gmail.com",
+       :port                 =>  587,
+       :user_name            => 'rami0test@gmail.com',
+       :password             =>  'rami123456',
+       :authentication       => 'plain',
+       :enable_starttls_auto => true  }
+
+  
+  
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
