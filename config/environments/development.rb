@@ -1,7 +1,7 @@
 Rails.application.configure do
   
   #devise gem url after sign in 
-  config.action_mailer.default_url_options = { host:'https://new-final-project-ramimohammed.c9users.io/users/sign_in' }
+  config.action_mailer.default_url_options = { host:'https://new-final-project-ramimohammed.c9users.io' }
                                               { host: 'your application URL' }
   config.action_mailer.smtp_settings = {
        :address              => "smtp.gmail.com",
