@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :types
  devise_for :users, controllers: {sessions: 'users/sessions' } 
 
+
+
 root 'properties#index'
 
 

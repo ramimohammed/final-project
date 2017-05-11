@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+
+
 
     </header>
 
@@ -46,11 +49,16 @@
         <td><%= property.type_id %></td>
         <td><%= time_ago_in_words (property.created_at) %></td>
         
+        <td><%= property.user_id %></td>
+        
+        <!--User.find_by(id: (cureent_user.id) ).first_name-->
+        
+        
            <% if user_signed_in?%>
         <td><%= link_to 'Show', property %></td>
       
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        
         <% end %>
         
       </tr>
@@ -60,9 +68,7 @@
 
 <br>
 
-<<<<<<<<< saved version
 
-=========
 <%= link_to 'New Property', new_property_path,class:"btn btn-success" %>
     <br>
     <br>
@@ -89,4 +95,4 @@
 </body>
 
 </html>
->>>>>>>>> local version
+

@@ -51,10 +51,26 @@
     <%= f.text_field :zip_code %>
   </div>
   
+  <div> 
+  
+ <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  
+  <br>
+  <br>
+  
+  
+  
   
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
+
+
+
+
 <% end %>
 
 
