@@ -49,17 +49,41 @@
   <strong>Longitude:</strong>
   <%= @property.longitude %>
 </p>
+<p>
+  <strong>posted by :</strong>
+  <%= @property.user.first_name %>
+</p>
+<p>
+  <strong>phone number :</strong>
+  <%= @property.user.phone_number %>
+</p>
+
+<p>
+  <strong>property type :</strong>
+  <%= @property.type.property_type %>
+</p>
+
+
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@property.latitude}%2C#{@property.longitude}" %>
+
+
+
+
+
+<br>
+<br>
+
 
 
 <% if user_signed_in?%>
 
 <%if @property.user_id == current_user.id%> 
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<td><%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+<%= link_to 'Edit your Publish property', edit_property_path(@property) %> |
+<td><%= link_to 'Delete your Publish property ', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
 <%end%>
 <%end%>
+<br>
 <br>
 <%= link_to 'Back', properties_path %>

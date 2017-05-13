@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 root 'properties#index'
 
 
+get 'about' => 'properties#about', as: 'about'
+
+
 
 
 

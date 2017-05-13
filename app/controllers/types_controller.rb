@@ -1,7 +1,7 @@
 class TypesController < ApplicationController
   
+http_basic_authenticate_with name: "rami", password: "123456", only: :index
 
- http_basic_authenticate_with name: "rami", password: "123456", only: :index
   
   
   before_action :set_type, only: [:show, :edit, :update, :destroy]
