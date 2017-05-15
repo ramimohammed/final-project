@@ -107,10 +107,7 @@
         <td><%= property.zip_code %></td>
         <td><%= property.type.property_type %></td>
         <td><%= time_ago_in_words (property.created_at) %></td>
-        
-        
-        
-        <td><%= property.user %></td>
+        <td><%= property.user.first_name %></td>
        
         
         <!--User.find_by(id: (cureent_user.id) ).first_name-->
@@ -124,7 +121,6 @@
            <% if user_signed_in?%>
         <td><%= link_to 'slelct', property %></td>
         <% if current_user.email == 'rami_a872000@yahoo.com' %>
-       
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
         <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        <% end %>

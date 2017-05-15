@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>property type :</strong>
+  <%= @property.type.property_type %>
+</p>
+<p>
   <strong>Title:</strong>
   <%= @property.title %>
 </p>
@@ -59,11 +63,9 @@
 </p>
 
 <p>
-  <strong>property type :</strong>
-  <%= @property.type.property_type %>
+  <strong>email:</strong>
+  <%= @property.user.email %>
 </p>
-
-
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@property.latitude}%2C#{@property.longitude}" %>
 
@@ -77,14 +79,32 @@
 
 
 <% if user_signed_in?%>
+<td><%= link_to 'Add review', new_review_path(property_id: @property.id) %></td>
 
 <%if @property.user_id == current_user.id || current_user.email == 'rami_a872000@yahoo.com' %>
 
 
     <%= link_to 'Edit your Publish property', edit_property_path(@property) %> |
-<td><%= link_to 'Delete your Publish property ', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+<td><%= link_to 'Delete your Publish property ', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>|
+
+
 <%end%>
 <%end%>
 <br>
 <br>
 <%= link_to 'Back', properties_path %>
+
+
+
+
+
+
+
+
+<% @property.reviews.each do |review| %>
+    <strong>User: </strong>
+    <%= review.user.email %><br>
+    <strong>Reviews: </strong>
+   <%= review.rev_text %><br>
+    
+  <% end %>

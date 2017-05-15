@@ -8,3 +8,7 @@ my real estate project
               <%end%>  
             <%end%>  
                 
+
+
+
+        <td><%= link_to 'reviews', reviews_path%></td>
