@@ -33,3 +33,11 @@ my real estate project
         <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       
     <% end %>
+    
+    
+    
+    
+    
+    
+    mustafa
+    <%if @user.reviews.create(params[:user_id] == current_user.id || current_user.email == 'rami_a872000@yahoo.com' %>

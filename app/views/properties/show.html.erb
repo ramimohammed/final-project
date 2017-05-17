@@ -115,7 +115,9 @@
     <strong>Reviews: </strong>
    <%= review.rev %><br>
    <br>
-    
+  <%if current_user.id == review.user_id%>
+    <%= link_to 'Show', review %>
+    <%= link_to 'Edit', edit_review_path(review) %>
+    <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-
-
+<% end %>
