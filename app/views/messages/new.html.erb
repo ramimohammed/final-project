@@ -1,37 +1,45 @@
-
-
-
-
-
-
-
-
-<!-------------------------------worko------------------------------------>
-<%= form_for @message, url: contact_path do |message_form| %>
-  <fieldset>
-    <div class="field">
-      <%= message_form.text_field :name, placeholder: "Name" %>
-    </div>
-    
-    <div class="field">
-      <%= message_form.email_field :email, placeholder: "Email"%>
-    </div>
-    
-    <div class="field">
-      <%= message_form.text_area :content, placeholder: "Message"%>
-    </div>
-  </fieldset>
+ <%= form_for @message, url: contact_path do |message_form| %>
+<section id="contact" class="section green">
+<div class="container"
+	<center><h2>send us email</h2></center> 
   
-  <fieldset>
-    <div class="field">
-      <%= message_form.submit "Send",class:"btn btn-default" %>
-    </div>
-  </fieldset>
-<% end %>
-
-
-</br>
-  <%= link_to 'Go Back to Property list',   properties_path%>
-  
-  
-  <!-------------------------------worko------------------------------------>
+      <div class="content">
+         <div class="blankdivider30">
+               </div>
+                <div class="row">
+                   <div class="span12">
+                     <div class="cform" id="contact-form">
+                       <div id="sendmessage">Your message has been sent. Thank you!</div>
+            
+                          <div id="errormessage"></div>
+                             <form action="" method="post" role="form" class="form contactForm">
+                   
+                              <div class="field">
+                              <%= message_form.text_field :name,class:"form-control", placeholder: "your Name"  %><br>
+                        
+           </div>
+         
+                            <div class="field">
+                            <%= message_form.email_field :email,class:"form-control", placeholder: "Your Email"  %><br>
+                        
+                  </div>
+                     <div class="field">
+                    
+                          <%= message_form.text_area :content, class:"form-control", placeholder: "Message"  %><br>
+                          <%= message_form.submit "Send message",  class:"b btn-primary "%> 
+                         <!--<div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </div>
+                        </div>
+                </div>
+                </form>
+                       
+                  
+            </div>
+          </div>
+         </div>
+      </div>
+       <button type="submit" <%= message_form.submit "Send message",  class:"btn btn-primary"%> </button>
+                
+   <%end%>
+</div>
+</section>

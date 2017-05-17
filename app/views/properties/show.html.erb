@@ -1,4 +1,9 @@
+
+
+
 <p id="notice"><%= notice %></p>
+
+
 
 <p>
   <strong>property type :</strong>
@@ -68,13 +73,27 @@
   <%= @property.user.email %>
 </p>
 
+</td>
+
+<td>
+  
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@property.latitude}%2C#{@property.longitude}" %>
+</td>
 
 
 
+
+  </tr>
+  </table>
+
+
+
+
+  
 
 
 <br>
+<%= render "assets" %>
 <br>
 
 
@@ -85,7 +104,7 @@
 <%if @property.user_id == current_user.id || current_user.email == 'rami_a872000@yahoo.com' %>
 
 
-    <%= link_to 'Edit your Publish property', edit_property_path(@property) %> |
+    <%= link_to 'Edit your Publish property', edit_property_path(@property),class:"btn btn-warning" %> |
 <td><%= link_to 'Delete your Publish property ', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>|
 
 
@@ -109,3 +128,4 @@
    <%= review.rev_text %><br>
     
   <% end %>
+

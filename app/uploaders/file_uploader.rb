@@ -1,6 +1,6 @@
 class FileUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
+ # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
 
@@ -50,4 +50,5 @@ class FileUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
-   end
+  # end
+  end

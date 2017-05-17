@@ -1,81 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Full Width Pics - Start Bootstrap Template</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/full-width-pics.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!--<a class="navbar-brand" href="#">Start Bootstrap</a>-->
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <%= link_to 'about', about_path%>
-                    </li>
-                    <li>
-                        <a href="#">Blog</a>
-                    </li>
-                    
-                    <li>
-                        <%= link_to 'contact', contact_path%>
-                    </li>
-                    <li>
-                        <%= link_to 'D.E Types',  types_path %>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-
-    </header>
-
-    <!-- Content Section -->
-    <section>
-        <div class="container">
             
                <!-------------------------------------start my work-------------------------------------------     -->
                     
                 <p id="notice"><%= notice %></p>
  
-<h1>Listing Availibe Properties</h1>
+<h1>Listing Available Properties</h1>
 <table class="table table-striped">
 
   <thead>
@@ -99,7 +28,7 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.title %></td>
-        <td><%= property.price %></td>
+        <td><%= number_to_currency (property.price) %></td>
         <td><%= property.beds %></td>
         <td><%= property.baths %></td>
         <td><%= property.address %></td>
@@ -119,10 +48,11 @@
        
         
            <% if user_signed_in?%>
-        <td><%= link_to 'slelct', property %></td>
+        <td><%= link_to 'select', property %></td>
         <% if current_user.email == 'rami_a872000@yahoo.com' %>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+         
        <% end %>
        <% end %>
       </tr>
