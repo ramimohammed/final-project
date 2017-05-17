@@ -3,7 +3,7 @@ class Property < ActiveRecord::Base
     belongs_to :type
     belongs_to :user
     has_many :reviews
-    has_many :assets
+    has_many :rmrms
     accepts_nested_attributes_for :reviews
     
    geocoded_by :address

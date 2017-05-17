@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
   resources :reviews
-  resources :properties
+  resources :properties do 
+    resources :rmrms, only: [:create]
+  end 
   resources :types
  devise_for :users, controllers: {sessions: 'users/sessions' } 
  
-# resources :property do 
-    resources :assets, only: [:create]
+
+ 
  
  get 'contact', to: 'messages#new', as: 'contact'
  post 'contact', to: 'messages#create'

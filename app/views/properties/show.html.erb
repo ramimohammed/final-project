@@ -86,28 +86,20 @@
   </tr>
   </table>
 
-
-
-
-  
+<br>
+<%= render "rmrm" %>
 
 
 <br>
-<%= render "assets" %>
-<br>
-
-
 
 <% if user_signed_in?%>
-<td><%= link_to 'Add review', new_review_path(property_id: @property.id) %></td>
-
 <%if @property.user_id == current_user.id || current_user.email == 'rami_a872000@yahoo.com' %>
-
 
     <%= link_to 'Edit your Publish property', edit_property_path(@property),class:"btn btn-warning" %> |
 <td><%= link_to 'Delete your Publish property ', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>|
 
-
+<%else%>
+<td><%= link_to 'Add review', new_review_path(property_no: params[:id]) %></td>
 <%end%>
 <%end%>
 <br>
@@ -116,16 +108,14 @@
 
 
 
-
-
-
-
-
+<p>read users reviews </p>
 <% @property.reviews.each do |review| %>
     <strong>User: </strong>
-    <%= review.user.email %><br>
+    <%= review.user.first_name %><br>
     <strong>Reviews: </strong>
-   <%= review.rev_text %><br>
+   <%= review.rev %><br>
+   <br>
     
   <% end %>
+
 
