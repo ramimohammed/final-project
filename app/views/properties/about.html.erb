@@ -1,5 +1,54 @@
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                      <%= link_to 'Home', properties_path%>
+                    </li>
+                    <li>
+                      <%= link_to 'About Us', about_path%>
+                    </li>
+                     <li>
+                     <%= link_to 'contact Us', contact_path%>
+                     </li>
+                
+                
+                    <% if user_signed_in? %>
+                    Wellcome <strong><%= current_user.first_name %>&nbsp;&nbsp;</strong>
+ 
+                   <%= link_to 'Edit profile', edit_user_registration_path %>|
+                   <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+                 
+                 <% else %>
+                   <%= link_to "Sign up", new_user_registration_path  %> |
+                   <%= link_to "Login", new_user_session_path %>
+                 <% end %>
 
-	<h1>Locality Real Estate</h1>
+  
+   </ul>
+            </div>
+
+
+
+
+
+ <div class="row">
+            <div class="box">
+                <div class="col-lg-10">
+                   
+       <h1>Locality Real Estate</h1>
 	<hr>
 	<p>This real estate project was built by Devbootstrap cohort 2017</p><br>
 	<p>I can create Rails application Real Estate. In this application have some feature like: </p><br>
@@ -19,7 +68,20 @@
 			    <strong><%= link_to 'send us email:', contact_path%></p></strong>
 			</div>
 		
-		</div>
+	
 				
-				<strong><%= link_to "visit our facebook page", "https://www.facebook.com/rami" %></strong>
-			
+	<strong><%= link_to "visit our facebook page", "https://www.facebook.com/rami" %></strong>
+			    
+
+       	</div>
+    </div>
+
+
+
+
+
+
+
+
+
+	
