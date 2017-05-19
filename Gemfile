@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 gem 'devise'
 gem 'geocoder'
+gem 'carrierwave', '~> 1.1'
+gem 'mini_magick', '~> 4.7'
+
 gem 'rails', '4.2.5'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
@@ -20,3 +23,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem "font-awesome-rails"
+gem 'simple_form'

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511064755) do
+ActiveRecord::Schema.define(version: 20170517023810) do
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "assets", ["property_id"], name: "index_assets_on_property_id"
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "properties", force: :cascade do |t|
     t.string   "title"
@@ -29,6 +43,23 @@ ActiveRecord::Schema.define(version: 20170511064755) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "rev"
+    t.integer  "user_id"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "rmrms", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "rmrms", ["property_id"], name: "index_rmrms_on_property_id"
 
   create_table "types", force: :cascade do |t|
     t.string   "property_type"

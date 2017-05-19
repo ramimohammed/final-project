@@ -1,65 +1,170 @@
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                      <%= link_to 'Home', properties_path%>
+                    </li>
+                    <li>
+                      <%= link_to 'About Us', about_path%>
+                    </li>
+                     <li>
+                     <%= link_to 'contact Us', contact_path%>
+                     </li>
+                
+                
+                    <% if user_signed_in? %>
+                    Wellcome <strong><%= current_user.first_name %>&nbsp;&nbsp;</strong>
+ 
+                   <%= link_to 'Edit profile', edit_user_registration_path %>|
+                   <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+                 
+                 <% else %>
+                   <%= link_to "Sign up", new_user_registration_path  %> |
+                   <%= link_to "Login", new_user_session_path %>
+                 <% end %>
+
+  
+   </ul>
+            </div>
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @property.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @property.description %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @property.price %>
-</p>
-
-<p>
-  <strong>Beds:</strong>
-  <%= @property.beds %>
-</p>
-
-<p>
-  <strong>Baths:</strong>
-  <%= @property.baths %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @property.city %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @property.zip_code %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @property.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @property.longitude %>
-</p>
-
+        <p>
+          <strong>property type :</strong>
+          <%= @property.type.property_type %>
+        </p>
+        <p>
+          <strong>Title:</strong>
+          <%= @property.title %>
+        </p>
+        
+        <p>
+          <strong>Description:</strong>
+          <%= @property.description %>
+        </p>
+        
+        <p>
+          <strong>Price:</strong>
+          <%= number_to_currency (@property.price) %>
+         
+        </p>
+        
+        <p>
+          <strong>Beds:</strong>
+          <%= @property.beds %>
+        </p>
+        
+        <p>
+          <strong>Baths:</strong>
+          <%= @property.baths %>
+        </p>
+        
+        <p>
+          <strong>Address:</strong>
+          <%= @property.address %>
+        </p>
+        
+        <p>
+          <strong>City:</strong>
+          <%= @property.city %>
+        </p>
+        
+        <p>
+          <strong>Zip code:</strong>
+          <%= @property.zip_code %>
+        </p>
+        
+        <p>
+          <strong>Latitude:</strong>
+          <%= @property.latitude %>
+        </p>
+        
+        <p>
+          <strong>Longitude:</strong>
+          <%= @property.longitude %>
+        </p>
+        <p>
+          <strong>posted by :</strong>
+          <%= @property.user.first_name %>
+        </p>
+        <p>
+          <strong>phone number :</strong>
+          <%= @property.user.phone_number %>
+        </p>
+        
+        <p>
+          <strong>email:</strong>
+          <%= @property.user.email %>
+        </p>
+        
+        </td>
+      
+        <td>
+          
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@property.latitude}%2C#{@property.longitude}" %>
+</td>
 
 
+
+
+  
+  </table>
+
+<br>
+
+
+
+<br>
+
+
+</tr>
 <% if user_signed_in?%>
+<%if @property.user_id == current_user.id || current_user.email == 'rami_a872000@yahoo.com' %>
 
-<%if @property.user_id == current_user.id%> 
+    <%= link_to 'Edit your Publish property', edit_property_path(@property),class:"btn btn-warning" %> 
+<td><%= link_to 'Delete your Publish property ', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<td><%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+<%else%>
+<td><%= link_to 'Add review', new_review_path(property_no: params[:id]) %></td>
 <%end%>
 <%end%>
 <br>
+<br>
 <%= link_to 'Back', properties_path %>
+
+
+
+<p>read reviews </p>
+<% @property.reviews.each do |review| %>
+    <strong>post by: </strong>
+    <%= review.user.first_name %><br>
+    <strong>Reviews: </strong>
+   <%= review.rev %><br>
+  <P>--------------------------</P>
+  <%if current_user.id == review.user_id || current_user.email == 'rami_a872000@yahoo.com'%>
+   
+    <%= link_to 'Edit Review', edit_review_path(review) %>
+    <%= link_to 'Delete Review', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <P>--------------------------</P>
+    <br>
+  <% end %>
+<% end %>

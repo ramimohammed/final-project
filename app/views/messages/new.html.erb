@@ -1,0 +1,92 @@
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                      <%= link_to 'Home', properties_path%>
+                    </li>
+                    <li>
+                      <%= link_to 'About Us', about_path%>
+                    </li>
+                     <li>
+                     <%= link_to 'contact Us', contact_path%>
+                     </li>
+                
+                
+                    <% if user_signed_in? %>
+                    Wellcome <strong><%= current_user.first_name %>&nbsp;&nbsp;</strong>
+ 
+                   <%= link_to 'Edit profile', edit_user_registration_path %>|
+                   <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+                 
+                 <% else %>
+                   <%= link_to "Sign up", new_user_registration_path  %> |
+                   <%= link_to "Login", new_user_session_path %>
+                 <% end %>
+
+  
+   </ul>
+            </div>
+
+
+
+
+
+
+ <%= form_for @message, url: contact_path do |message_form| %>
+<section id="contact" class="section green">
+<div class="container"
+	<center><h2>send us email</h2></center> 
+  
+      <div class="content">
+         <div class="blankdivider30">
+               </div>
+                <div class="row">
+                   <div class="span8">
+                     <div class="cform" id="contact-form">
+                      
+            
+                          <div id="errormessage"></div>
+                             <form action="" method="post" role="form" class="form contactForm">
+                   
+                              <div class="field">
+                              <%= message_form.text_field :name,class:"form-control", placeholder: "your Name"  %><br>
+                        
+           </div>
+         
+                            <div class="field">
+                            <%= message_form.email_field :email,class:"form-control", placeholder: "Your Email"  %><br>
+                        
+                  </div>
+                     <div class="field">
+                    
+                          <%= message_form.text_area :content, class:"form-control", placeholder: "Message"  %><br>
+                          <%= message_form.submit "Send message",  class:"b btn-primary "%> 
+                         <!--<div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </div>
+                        </div>
+                </div>
+                </form>
+                       
+                  
+            </div>
+          </div>
+         </div>
+      </div>
+       <button type="submit" <%= message_form.submit "Send message",  class:"btn btn-primary"%> </button>
+                
+   <%end%>
+</div>
+</section>
