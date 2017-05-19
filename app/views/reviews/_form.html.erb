@@ -62,9 +62,9 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :rev %><br>
-    <%= f.text_area :rev %>
+    <%= f.text_area :rev,class: "form-control" %>
   </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   

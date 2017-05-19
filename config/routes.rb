@@ -16,10 +16,10 @@ Rails.application.routes.draw do
 
 
 
-root 'properties#index'
+ root 'properties#index'
 
 
-get 'about' => 'properties#about', as: 'about'
+ get 'about' => 'properties#about', as: 'about'
 
 
 
