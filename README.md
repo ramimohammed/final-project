@@ -41,3 +41,9 @@ my real estate project
     
     mustafa
     <%if @user.reviews.create(params[:user_id] == current_user.id || current_user.email == 'rami_a872000@yahoo.com' %>
+    
+    
+    
+    
+    
+    rails g active_admin:resource property

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :reviews
+  resources :blogs
   resources :properties do 
     resources :rmrms, only: [:create]
   end 
