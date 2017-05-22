@@ -1,4 +1,17 @@
-<nav class="navbar navbar-default" role="navigation">
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+
+    <div class="brand"> Real Estate Project</div>
+    <div class="address-bar">3660 N. Mozart St. | Chicago, IL 66210 | 773-774-7750</div>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -13,6 +26,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               
                 <ul class="nav navbar-nav">
                     <li>
                       <%= link_to 'Home', properties_path%>
@@ -23,8 +37,11 @@
                      <li>
                      <%= link_to 'contact Us', contact_path%>
                      </li>
-                
-                
+                     <li>
+                     <%= link_to 'Blog', blogs_path%>
+                     </li>
+                      
+                </div>
                     <% if user_signed_in? %>
                     Wellcome <strong><%= current_user.first_name %>&nbsp;&nbsp;</strong>
  
@@ -37,10 +54,12 @@
                  <% end %>
 
   
-   </ul>
-            </div>
-
-
+  
+            
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+  
 
 
 

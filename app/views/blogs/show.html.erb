@@ -63,44 +63,30 @@
 
 
 
- <div class="row">
+
+
+
+
+
+
+<div class="row">
             <div class="box">
                 <div class="col-lg-10">
-                   
-       <h1>Locality Real Estate</h1>
-	<hr>
-	<p>This real estate project was built by Devbootstrap cohort 2017</p><br>
-	<p>I can create Rails application Real Estate. In this application have some feature like: </p><br>
 
-		<li>Can publish your property with your details</li>
-		<li>Can show property that peoples create</li>
-		<li>Can login to edit or delet your property</li>
+<p id="notice"><%= notice %></p>
 
-	
-	
-	<h3 class="aside">Contact person</h3>
-			<hr/>
-			<p>In case you want to get in touch with us please feel free to call or email us.</p>
-			<div id="contact_info">
-				<h4>R.J</h4>
-				<p><b>Phone:</b>012-345-6789</p>
-			    <strong><%= link_to 'send us email:', contact_path%></p></strong>
-			</div>
-		
-	
-				
-	<strong><%= link_to "visit our facebook page", "https://www.facebook.com/rami" %></strong>
-			    
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
 
-       	</div>
-    </div>
+<p>
+  <strong>Content:</strong>
+  <%= @blog.content %>
+</p>
 
 
-
-
-
-
-
-
-
-	
+<%= link_to 'Back', blogs_path %>
+</div>
+</div>
+</div>
